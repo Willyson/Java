@@ -20,7 +20,7 @@ public class testeConta {
         Conta c = new Conta(numeroUsuario, limiteUsuario);
         int opcao;
         do{
-            opcao = Integer.parseInt(JOptionPane.showInputDialog("MENU \n [ 1 ] Depositar \n [ 2 ] Sacar \n[ 3 ] Exibir dados \n[ 4 ] Sair "));
+            opcao = Integer.parseInt(JOptionPane.showInputDialog("MENU \n [ 1 ] Depositar \n [ 2 ] Sacar \n [ 3 ] Exibir dados \n [ 4 ] Sair "));
             
             switch(opcao){
                 case 1: 
