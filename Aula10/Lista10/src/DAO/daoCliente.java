@@ -37,7 +37,7 @@ public class daoCliente {
     
     
     public boolean localizarCliente(){
-        sql = "SELECT * FROM CLIENTES WHERE CODCLI = ?";
+        sql = "SELECT NOME, ENDER, BAIRRO, CIDADE, CEP, UF, EMAIL, FONE, CELULAR FROM CLIENTES WHERE CODCLI = ?";
         
         try{
             statement = db.connection.prepareStatement(sql);
