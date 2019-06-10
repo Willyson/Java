@@ -67,6 +67,30 @@ public class Produto extends javax.swing.JFrame {
 
         jLabel6.setText("Quantidade no estoque");
 
+        jLabel1.setText("Código do Produto");
+
+        jLabel2.setText("Descrição do Produto");
+
+        jLabel3.setText("Preço do Produto");
+
+        jLabel4.setText("Unidade");
+
+        jLabel5.setText("Quantidade de inicial");
+
+        jLabel6.setText("Data de cadastro ");
+
+        jLabel7.setText("Quantidade atual");
+
+        jButton1.setText("Novo Produto");
+
+        jButton2.setText("Salvar");
+
+        jButton4.setText("Editar");
+
+        jButton5.setText("Consultar");
+
+        jButton7.setText("Excluir");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
