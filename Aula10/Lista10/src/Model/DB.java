@@ -16,27 +16,26 @@ import java.sql.SQLException;
  */
 public class DB {
     public Connection connection = null;
-    private final String DRIVER = "com.mysql.jdbc.Driver";
+    private final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private final String DBNAME = "VENDAS";
-    private final String URL = "jdbc:mysql://localhost:3306/" + DBNAME;
+    private final String URL = "jdbc:mysql://localhost:3306/" + DBNAME + "?useTimezone=true&serverTimezone=UTC";
     private final String LOGIN = "root";
     private final String SENHA = "root";
     
     
-    public boolean getConnection() throws SQLException{
+    public Connection getConnection() throws SQLException{
         try{
             Class.forName(DRIVER);
             connection = DriverManager.getConnection(URL, LOGIN, SENHA);
-            System.out.println("Conectou");
-            return true;
+            return connection;
         }
         catch (ClassNotFoundException erro){
             System.out.println("Driver não encontrado " + erro.toString());
-            return false;
+            return null;
         }
         catch (SQLException erro){
             System.out.println("Falha ao conectar " + erro.toString());
-            return false;
+            return null;
         }
         
     }
