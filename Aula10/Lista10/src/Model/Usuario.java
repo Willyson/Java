@@ -11,6 +11,7 @@ package Model;
  */
 public class Usuario {
     
+    private int codigoUsuario;
     private String nomeUsuario;
     private String senhaUsuario;
     private String statusUsuario;
@@ -44,6 +45,22 @@ public class Usuario {
         this.senhaUsuario = senhaUsuario;
     }
 
+    public int getCodigoUsuario() {
+        return codigoUsuario;
+    }
+
+    public void setCodigoUsuario(int codigoUsuario) {
+        this.codigoUsuario = codigoUsuario;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "codigoUsuario=" + codigoUsuario + ", nomeUsuario=" + nomeUsuario + ", senhaUsuario=" + senhaUsuario + ", statusUsuario=" + statusUsuario + '}';
+    }
+
+    
+    
+    
     public Usuario() {
     }
     

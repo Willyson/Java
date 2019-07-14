@@ -78,6 +78,16 @@ public class Produto {
         this.codigoProduto = codigoProduto;
     }
     
+    public Produto(){
+        
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" + "codigoProduto=" + codigoProduto + ", descProduto=" + descProduto + ", precoProduto=" + precoProduto + ", qtde=" + qtde + ", dataCadProduto=" + dataCadProduto + '}';
+    }
+
+   
     
     
     

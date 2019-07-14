@@ -11,16 +11,16 @@ package Model;
  */
 public class Pedidos {
     
-    private int codigoPedito;
+    private int codigoPedido;
     private int codigoCliente;
     private String dataPedido;
 
-    public int getCodigoPedito() {
-        return codigoPedito;
+    public int getCodigoPedido() {
+        return codigoPedido;
     }
 
-    public void setCodigoPedito(int codigoPedito) {
-        this.codigoPedito = codigoPedito;
+    public void setCodigoPedido(int codigoPedido) {
+        this.codigoPedido = codigoPedido;
     }
 
     public int getCodigoCliente() {
@@ -46,8 +46,8 @@ public class Pedidos {
     public Pedidos() {
     }
 
-    public Pedidos(int codigoPedito, int codigoCliente) {
-        this.codigoPedito = codigoPedito;
+    public Pedidos(int codigoPedido, int codigoCliente) {
+        this.codigoPedido = codigoPedido;
         this.codigoCliente = codigoCliente;
     }
     

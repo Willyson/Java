@@ -8,6 +8,8 @@ package DAO;
 import Model.Cliente;
 import Model.DB;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -36,7 +38,7 @@ public class daoCliente {
     */
     
     
-    public boolean localizarCliente(){
+    public boolean localizarCliente(Cliente cliente){
         sql = "SELECT NOME, ENDER, BAIRRO, CIDADE, CEP, UF, EMAIL, FONE, CELULAR FROM CLIENTES WHERE CODCLI = ?";
         
         try{
@@ -61,6 +63,53 @@ public class daoCliente {
         }
         
     }
+    
+    /* ======== Listar Clientes ========== */
+    
+    public List<Cliente> ListarClientes(){
+        
+        List<Cliente> clientes = new ArrayList<>();
+        
+        try{
+            sql = "SELECT * FROM CLIENTES";
+            statement = db.getConnection().prepareStatement(sql);
+            resultSet = statement.executeQuery();
+            
+            while(resultSet.next()){
+                Cliente cliente = new Cliente();
+                
+                cliente.setCodigoCliente(resultSet.getInt(1));
+                cliente.setNomeCliente(resultSet.getString(2));
+                cliente.setEnderecoCliente(resultSet.getString(3));
+                cliente.setBairroCliente(resultSet.getString(4));
+                cliente.setCidadeCliente(resultSet.getString(5));
+                cliente.setCepCliente(resultSet.getString(6));
+                cliente.setUfCliente(resultSet.getString(7));
+                cliente.setEmailCliente(resultSet.getString(8));
+                cliente.setFoneCliente(resultSet.getString(9));
+                cliente.setCelularCliente(resultSet.getString(10));
+                
+                clientes.add(cliente);
+                
+            }
+            
+            for (Cliente cliente1 : clientes) {
+                System.out.println(cliente1.toString());
+            }
+            
+            
+            return clientes;
+        }
+        catch(SQLException erro){
+            System.err.println(erro);
+        }
+        
+        
+        
+        return null;
+    }
+    
+    
     
     
     public int retornaIDCliente(String nomeCliente){

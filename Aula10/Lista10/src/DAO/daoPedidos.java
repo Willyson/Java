@@ -43,7 +43,7 @@ public class daoPedidos {
             }else if(operacao == EXCLUSAO){
                 sql = "DELETE FROM PEDIDOS WHERE CODPED = ?";
                 statement = db.getConnection().prepareStatement(sql);
-                statement.setInt(1, pedido.getCodigoPedito());
+                statement.setInt(1, pedido.getCodigoPedido());
             }
             
             if(statement.executeUpdate() == 0){

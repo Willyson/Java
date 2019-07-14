@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -60,5 +62,51 @@ public class daoUsuario {
         
         return true;
     }
+    
+    
+    /* Retorna usuários cadastrados */
+    
+    public List<Usuario>  retornaUsuarios(){
+        
+        List<Usuario> usuarios = new ArrayList<Usuario>();
+        
+        
+        
+        try{
+            sql = "SELECT ID_USUARIO,  NOME_USUARIO,   \"****\" SENHA_USUARIO,    STATUS_USUARIO FROM  USUARIO";
+            statement = db.getConnection().prepareStatement(sql);
+            resultSet = statement.executeQuery();
+            
+            while(resultSet.next()){
+                Usuario usuario = new Usuario();
+                
+                usuario.setCodigoUsuario(resultSet.getInt(1));
+                usuario.setNomeUsuario(resultSet.getString(2));
+                usuario.setSenhaUsuario(resultSet.getString(3));
+                usuario.setStatusUsuario(resultSet.getString(4));
+                
+                usuarios.add(usuario);
+                
+            }
+            
+//            for (Usuario usuario1 : usuarios) {
+//                System.out.println(usuario1.toString());
+//            }
+            return usuarios;
+            
+        
+        }catch(SQLException erro){
+            System.out.println(erro);
+        }
+        
+        
+        
+        return null;
+    }
+    
+    
+    /* Alterar senha */
+    
+    
     
 }

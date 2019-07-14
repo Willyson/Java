@@ -29,7 +29,7 @@ public class ClasseTeste {
         daoUsuario daoUser = new daoUsuario();
         
         /* Valida login */
-       // Usuario u = new Usuario("adm", "1234");
+        //Usuario u = new Usuario("adm", "1234");
         
         //JOptionPane.showMessageDialog(null, "Seja Bem-vindo " + daoUser.ValidaLogin(u).getNomeUsuario());
         
@@ -38,6 +38,13 @@ public class ClasseTeste {
      
        // Usuario novoUsuario = new Usuario("william", "1234");   
        // daoUser.CadastraUsuario(novoUsuario);
+        
+        
+       /* Consultar usuários cadastrados */
+        
+        //daoUser.retornaUsuarios();
+        
+        
         
         
         /* Cadastra cliente */
@@ -60,6 +67,13 @@ public class ClasseTeste {
         
         //Cliente removerCliente = new Cliente(1);
         //daocliente.atualizar(3, removerCliente);
+        
+        /* Consultar Clientes Cadastrados */
+        
+        //daocliente.ListarClientes();
+        
+        
+        
         
         
         /*========== PRODUTO ========== */
@@ -84,6 +98,11 @@ public class ClasseTeste {
         //daoproduto.atualizar(3, removerProduto);
         
         
+       /* Listar Produtos */ 
+        
+        //daoproduto.listarProdutos();
+        
+        
        /* ======= PEDIDOS ========= */ 
         
        daoPedidos daopedidos = new daoPedidos();
@@ -105,10 +124,33 @@ public class ClasseTeste {
        
        /* Cadastra itens vendidos */
        
-        ItensPedido itenspedido = new ItensPedido(2,2, 20);
-        
-        daoitenspedido.atualizar(1, itenspedido);
+        //ItensPedido itenspedido = new ItensPedido(2,2, 20);
+        //daoitenspedido.atualizar(1, itenspedido);
         
        
+        /* Realizar Venda */
+        
+        // Verificar se o cliente existe 
+        
+        Cliente clienteVenda = new Cliente();
+        int codigoCliente = daocliente.retornaIDCliente("William Cliente");
+        if(codigoCliente != -1){
+            
+            float quantidade = 10;
+            int codigoProduto = 2;
+            
+            /* Verificar se há produto no estoque */
+            if(daoproduto.produtoDisponivel(codigoProduto, quantidade)){
+                
+                Pedidos novoPedido = new Pedidos(codigoCliente);
+                daopedidos.atualizar(1, novoPedido);
+                
+            }
+            
+            
+        }
+        else{
+            System.out.println("Cliente não cadastrado ou nome errado");
+        }
     }
 }

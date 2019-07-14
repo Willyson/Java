@@ -8,6 +8,8 @@ package DAO;
 import Model.DB;
 import Model.Produto;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -54,6 +56,71 @@ public class daoProduto {
         
         
     }
+    
+    public boolean produtoDisponivel(int codigoProduto, float quantidade){
+        
+        sql = "SELECT QTDE FROM PRODUTOS WHERE CODPROD = ?";
+        
+        try{
+            statement = db.getConnection().prepareStatement(sql);
+            statement.setInt(1, codigoProduto);
+            resultSet = statement.executeQuery();
+            resultSet.next();
+            
+            return resultSet.getFloat(1) >= quantidade;
+            
+            
+        }catch(SQLException erro){
+            System.out.println(erro);
+            return false;
+        }
+      
+    }
+    
+    
+    /* Listar Produtos */
+    
+    public List<Produto> listarProdutos(){
+        
+        List<Produto> produtos = new ArrayList<>();
+        Produto produto;
+        try{
+            sql = "SELECT CODPROD, DESCRICAO, PRECO, QTDE, DATE_FORMAT(DATA_CAD, \"%d/%m/%Y\") AS DATA_CAD FROM PRODUTOS;";
+            statement = db.getConnection().prepareStatement(sql);
+            resultSet = statement.executeQuery();
+            
+            while(resultSet.next()){
+                
+                produto = new Produto();
+                
+                produto.setCodigoProduto(resultSet.getInt(1));
+                produto.setDescProduto(resultSet.getString(2));
+                produto.setPrecoProduto(resultSet.getFloat(3));
+                produto.setQtde(resultSet.getFloat(4));
+                produto.setDataCadProduto(String.valueOf(resultSet.getString(5)));
+                
+                produtos.add(produto);
+                
+            }
+            
+//            for (Produto produto1 : produtos) {
+//                System.out.println(produto1);
+//            }
+            
+           return produtos;
+            
+            
+        }catch(SQLException erro){
+            System.out.println(erro);
+        }
+        
+        
+        
+        return null;
+    }
+    
+    
+    
     
     public String atualizar (int operacao, Produto produto){
         try{
