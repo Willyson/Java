@@ -38,6 +38,18 @@ public class Pedidos {
     public void setDataPedido(String dataPedido) {
         this.dataPedido = dataPedido;
     }
+
+    public Pedidos(int codigoCliente) {
+        this.codigoCliente = codigoCliente;
+    }
+
+    public Pedidos() {
+    }
+
+    public Pedidos(int codigoPedito, int codigoCliente) {
+        this.codigoPedito = codigoPedito;
+        this.codigoCliente = codigoCliente;
+    }
     
     
 }

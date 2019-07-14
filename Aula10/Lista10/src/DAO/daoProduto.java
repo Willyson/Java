@@ -29,11 +29,11 @@ public class daoProduto {
     
     public daoProduto(){
         db = new DB();
-        produto = new Produto();
+        
     }
     
     public boolean localizaProduto(){
-        sql = "SELECT DESCRICAO, PRECO, UNIDADE, QTDE_INICIAL, DATA_CAD, QTDE_ATUAL FROM PRODUTOS WHERE CODPROD = ?";
+        sql = "SELECT DESCRICAO, PRECO, QTDE, DATA_CAD FROM PRODUTOS WHERE CODPROD = ?";
         
         try{
             statement = db.connection.prepareStatement(sql);
@@ -43,10 +43,9 @@ public class daoProduto {
             
             produto.setDescProduto(resultSet.getString(1));
             produto.setPrecoProduto(resultSet.getFloat(2));
-            produto.setUniProduto(resultSet.getString(3));
-            produto.setQtdeInicialProduto(resultSet.getFloat(4));
-            produto.setDataCadProduto(String.valueOf(resultSet.getDate(5)));
-            produto.setQtdAtualProduto(resultSet.getFloat(6));
+            produto.setQtde(resultSet.getFloat(3));
+            produto.setDataCadProduto(String.valueOf(resultSet.getDate(4)));
+            
             return true;
             
         }catch(SQLException erro){
@@ -56,36 +55,35 @@ public class daoProduto {
         
     }
     
-    public String atualizar (int operacao){
+    public String atualizar (int operacao, Produto produto){
         try{
             if(operacao == INCLUSAO){
-                sql = "INSERT INTO PRODUTOS (DESCRICAO, PRECO, UNIDADE, QTDE_INICIAL, DATA_CAD, QTDE_ATUAL ) VALUES (?, ?, ?, ?, NOW(), ?)";
-                statement = db.connection.prepareStatement(sql);
+                sql = "INSERT INTO PRODUTOS (DESCRICAO, PRECO, QTDE, DATA_CAD) VALUES (?, ?, ?, NOW())";
+                statement = db.getConnection().prepareStatement(sql);
                 
                 statement.setString(1,(produto.getDescProduto()));
                 statement.setFloat(2, (produto.getPrecoProduto()));
-                statement.setString(3,(produto.getUniProduto()));
-                statement.setFloat(4, (produto.getQtdeInicialProduto()));
-                statement.setFloat(5, (produto.getQtdAtualProduto()));
+                statement.setFloat(3,(produto.getQtde()));
+               
             }
             else if (operacao == ALTERACAO){
-                sql = "UPDATE PRODUTOS SET DESCRICAO = ?, PRECO = ?, UNIDADE = ?, QTDE_INICIAL = ?, DATA_CAD = NOW(), QTDE_ATUAL = ? WHERE CODPROD = ? ";
-                statement = db.connection.prepareStatement(sql);
+                sql = "UPDATE PRODUTOS SET DESCRICAO = ?, PRECO = ?, QTDE = ?, DATA_CAD = NOW() WHERE CODPROD = ? ";
+                statement = db.getConnection().prepareStatement(sql);
                 
                 statement.setString(1,(produto.getDescProduto()));
                 statement.setFloat(2, (produto.getPrecoProduto()));
-                statement.setString(3,(produto.getUniProduto()));
-                statement.setFloat(4, (produto.getQtdeInicialProduto()));
-                statement.setFloat(5, (produto.getQtdAtualProduto()));
+                statement.setFloat(3,(produto.getQtde()));
+                statement.setInt(4, (produto.getCodigoProduto()));
             }
             else if(operacao == EXCLUSAO){
                 sql = "DELETE FROM PRODUTOS WHERE CODPROD = ? ";
-                statement = db.connection.prepareStatement(sql);
+                statement = db.getConnection().prepareStatement(sql);
                 statement.setInt(1, produto.getCodigoProduto());
             }
             
             if(statement.executeUpdate() == 0){
                 men = "Falha na operacao";
+                db.close();
             }
         }catch(SQLException erro){
             numero = erro.getErrorCode();

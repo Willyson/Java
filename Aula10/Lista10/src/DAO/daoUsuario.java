@@ -45,4 +45,20 @@ public class daoUsuario {
         return null;
     }
     
+    //Criar função de validação de E-mail e Senha 
+    
+    
+    public boolean CadastraUsuario(Usuario u) throws SQLException{
+        
+        if(!u.getNomeUsuario().isEmpty() && !u.getSenhaUsuario().isEmpty() && !u.getSenhaUsuario().contains("--")){
+            
+            sql = "INSERT INTO USUARIO(NOME_USUARIO, SENHA_USUARIO, STATUS_USUARIO) VALUES ('"+u.getNomeUsuario()+"','"+u.getSenhaUsuario()+"','A')";
+            statement = db.getConnection().prepareStatement(sql);
+            statement.execute();
+            
+        }
+        
+        return true;
+    }
+    
 }

@@ -27,7 +27,7 @@ public class daoCliente {
     
     public daoCliente(){
         db = new DB();
-        cliente = new Cliente();
+        
     }
     
     
@@ -63,15 +63,35 @@ public class daoCliente {
     }
     
     
+    public int retornaIDCliente(String nomeCliente){
+        
+        sql = "SELECT CODCLI FROM CLIENTES WHERE NOME = '"+nomeCliente+"'";
+        
+        
+        try{
+            statement = db.getConnection().prepareStatement(sql);
+            resultSet = statement.executeQuery();
+            resultSet.next();
+            
+            return resultSet.getInt(1);
+            
+        }catch(SQLException erro){
+            return -1;
+        }
+        
+        
+    }
     
-    public String atualizar(int operacao){
+    
+    
+    public String atualizar(int operacao, Cliente cliente){
         
         men = "Operação realizada com sucesso";
         
         try{
             if(operacao == INCLUSAO){
                 sql = "INSERT INTO CLIENTES (NOME, ENDER, BAIRRO, CIDADE, CEP, UF, EMAIL, FONE, CELULAR) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                statement = db.connection.prepareStatement(sql);
+                statement = db.getConnection().prepareStatement(sql);
                 
                 statement.setString(1,(cliente.getNomeCliente()));
                 statement.setString(2, (cliente.getEnderecoCliente()));
@@ -84,6 +104,15 @@ public class daoCliente {
                 statement.setString(9, cliente.getCelularCliente());
             }
             else if (operacao == ALTERACAO){
+                
+                
+                // Pega ID do cliente 
+                
+                    cliente.setCodigoCliente(retornaIDCliente(cliente.getNomeCliente()));
+                
+                //
+                
+                
                 sql = "UPDATE CLIENTES SET NOME = ?, ENDER = ?, BAIRRO = ?, CIDADE = ?, CEP = ?, UF = ?, EMAIL = ?, FONE = ?, CELULAR = ? WHERE CODCLI = ? ";
                 statement = db.connection.prepareStatement(sql);
                 
@@ -99,8 +128,11 @@ public class daoCliente {
                 statement.setInt(10, cliente.getCodigoCliente());
             }
             else if(operacao == EXCLUSAO){
+                
+                
+                
                 sql = "DELETE FROM CLIENTES WHERE CODCLI = ? ";
-                statement = db.connection.prepareStatement(sql);
+                statement = db.getConnection().prepareStatement(sql);
                 statement.setInt(1, cliente.getCodigoCliente());
             }
             

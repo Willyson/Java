@@ -15,10 +15,8 @@ public class Produto {
     private int codigoProduto; 
     private String descProduto;
     private float precoProduto;
-    private String uniProduto;
-    private float qtdeInicialProduto;
+    private float qtde;
     private String dataCadProduto;
-    private float qtdAtualProduto;
 
     public int getCodigoProduto() {
         return codigoProduto;
@@ -44,21 +42,16 @@ public class Produto {
         this.precoProduto = precoProduto;
     }
 
-    public String getUniProduto() {
-        return uniProduto;
+    public float getQtde() {
+        return qtde;
     }
 
-    public void setUniProduto(String uniProduto) {
-        this.uniProduto = uniProduto;
+    public void setQtde(float qtde) {
+        this.qtde = qtde;
     }
 
-    public float getQtdeInicialProduto() {
-        return qtdeInicialProduto;
-    }
-
-    public void setQtdeInicialProduto(float qtdeInicialProduto) {
-        this.qtdeInicialProduto = qtdeInicialProduto;
-    }
+    
+  
 
     public String getDataCadProduto() {
         return dataCadProduto;
@@ -68,13 +61,24 @@ public class Produto {
         this.dataCadProduto = dataCadProduto;
     }
 
-    public float getQtdAtualProduto() {
-        return qtdAtualProduto;
+    public Produto(String descProduto, float precoProduto, float qtde) {
+        this.descProduto = descProduto;
+        this.precoProduto = precoProduto;
+        this.qtde = qtde;
     }
 
-    public void setQtdAtualProduto(float qtdAtualProduto) {
-        this.qtdAtualProduto = qtdAtualProduto;
+    public Produto(int codigoProduto, String descProduto, float precoProduto, float qtde) {
+        this.codigoProduto = codigoProduto;
+        this.descProduto = descProduto;
+        this.precoProduto = precoProduto;
+        this.qtde = qtde;
     }
+
+    public Produto(int codigoProduto) {
+        this.codigoProduto = codigoProduto;
+    }
+    
+    
     
     
 }

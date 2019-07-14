@@ -11,16 +11,16 @@ package Model;
  */
 public class ItensPedido {
     
-    private int codigoItens;
+    private int codigoPedido;
     private int codigoProduto;
     private float qtdeItens;
 
-    public int getCodigoItens() {
-        return codigoItens;
+    public int getCodigoPedido() {
+        return codigoPedido;
     }
 
-    public void setCodigoItens(int codigoItens) {
-        this.codigoItens = codigoItens;
+    public void setCodigoPedido(int codigoPedido) {
+        this.codigoPedido = codigoPedido;
     }
 
     public int getCodigoProduto() {
@@ -37,6 +37,15 @@ public class ItensPedido {
 
     public void setQtdeItens(float qtdeItens) {
         this.qtdeItens = qtdeItens;
+    }
+
+    public ItensPedido(int codigoPedido, int codigoProduto, float qtdeItens) {
+        this.codigoPedido = codigoPedido;
+        this.codigoProduto = codigoProduto;
+        this.qtdeItens = qtdeItens;
+    }
+
+    public ItensPedido() {
     }
     
     

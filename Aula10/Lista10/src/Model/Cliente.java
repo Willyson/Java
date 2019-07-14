@@ -101,9 +101,37 @@ public class Cliente {
     public void setBairroCliente(String bairroCliente) {
         this.bairroCliente = bairroCliente;
     }
+
+    public Cliente(String nomeCliente, String enderecoCliente, String bairroCliente, String cidadeCliente, String cepCliente, String ufCliente, String emailCliente, String foneCliente, String celularCliente) {
+        
+        this.nomeCliente = nomeCliente;
+        this.enderecoCliente = enderecoCliente;
+        this.bairroCliente = bairroCliente;
+        this.cidadeCliente = cidadeCliente;
+        this.cepCliente = cepCliente;
+        this.ufCliente = ufCliente;
+        this.emailCliente = emailCliente;
+        this.foneCliente = foneCliente;
+        this.celularCliente = celularCliente;
+    }
+
+    public Cliente() {
+    }
+
+    public Cliente(int codigoCliente) {
+        this.codigoCliente = codigoCliente;
+    }
     
     
 
+    @Override
+    public String toString() {
+        return "Cliente{" + "codigoCliente=" + codigoCliente + ", nomeCliente=" + nomeCliente + ", enderecoCliente=" + enderecoCliente + ", bairroCliente=" + bairroCliente + ", cidadeCliente=" + cidadeCliente + ", cepCliente=" + cepCliente + ", ufCliente=" + ufCliente + ", emailCliente=" + emailCliente + ", foneCliente=" + foneCliente + ", celularCliente=" + celularCliente + '}';
+    }
+    
+    
+    
+ 
    
     
     
