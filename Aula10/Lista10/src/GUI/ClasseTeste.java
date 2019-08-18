@@ -145,6 +145,9 @@ public class ClasseTeste {
                 Pedidos novoPedido = new Pedidos(codigoCliente);
                 daopedidos.atualizar(1, novoPedido);
                 
+                
+                ItensPedido item1 = new ItensPedido
+                
             }
             
             
