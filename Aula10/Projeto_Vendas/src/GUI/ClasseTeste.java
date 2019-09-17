@@ -145,8 +145,14 @@ public class ClasseTeste {
                 Pedidos novoPedido = new Pedidos(codigoCliente);
                 daopedidos.atualizar(1, novoPedido);
                 
+                // Informo itens do pedido 
                 
-                ItensPedido item1 = new ItensPedido
+                
+                
+                
+                
+                
+                ItensPedido item1 = new ItensPedido();
                 
             }
             
