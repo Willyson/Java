@@ -25,14 +25,14 @@ public class Lista03 {
         
         */
         
-//        int ini = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor de inicio"));
-//        int fin = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor de término"));
-//        String saida = "";
-//        
-//        for(int i = ini; i <= fin; i++){
-//            saida += (i % 2 == 0) ? " " + i : "";
-//        }
-//        JOptionPane.showMessageDialog(null, saida);
+        int ini = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor de inicio"));
+        int fin = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor de término"));
+        String saida = "";
+        
+        for(int i = ini; i <= fin; i++){
+            saida += (i % 2 == 0) ? " " + i : "";
+        }
+        JOptionPane.showMessageDialog(null, saida);
 
 
 /*
@@ -62,29 +62,29 @@ Por exemplo, imprimir até o 6º termo: 1, 1, 2, 3, 5, 8
 //        3) Um programa capaz de imprimir todos os números primos em um intervalo de
 //números informado pelo usuário;
 
-        int ini = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor de inicio"));
-        int fin = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor de término"));
-        
-        int[] vet = new int[fin];
-        
-        for(int i = 2; i < (fin); i++){
-            vet[i] = i;
-        }
-        
-        for(int i = 2; i < (fin); i++){
-            for(int x = 2; x < fin; x++){
-                if(vet[i] % vet[x] == 0){
-                    vet[i] = -1;
-                }
-            }
-        }
+//        int ini = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor de inicio"));
+//        int fin = Integer.parseInt(JOptionPane.showInputDialog("Digite o valor de término"));
 //        
-        
-        for(int i = 2; i < fin; i++){
-            System.out.println(vet[i]);
-        }
-        
-        
+//        int[] vet = new int[fin];
+//        
+//        for(int i = 2; i < (fin); i++){
+//            vet[i] = i;
+//        }
+//        
+//        for(int i = 2; i < (fin); i++){
+//            for(int x = 3; x < fin; x++){
+//                if(vet[i] % vet[x] == 0){
+//                    vet[i] = -1;
+//                }
+//            }
+//        }
+////        
+//        
+//        for(int i = 2; i < fin; i++){
+//            System.out.println(vet[i]);
+//        }
+//        
+//        
 
      
     }
