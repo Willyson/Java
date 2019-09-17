@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Login Usuario</title>
+        <link rel="stylesheet" type="text/css" href="estiloPadrao.css"/>
+        <link rel="stylesheet" type="text/css" href="modal.css" />
+        
+    </head>
+    <body>
+
+        <!--Login no sistema-->>
+
+        <form class="formulario">
+            <p class="tituloForm">Sistema de Controle de Vendas</p>
+            <input type="text" name="nomeUsurio" placeholder="Digite seu usuário"/>
+            <input type="password" name="usuarioSenha" placeholder="Senha "/>
+            <a href="#" id="btnNovoUsuario">Não possuo usuário ainda</a>
+            <a href="recuperaSenha.html">Esqueci minha senha</a>
+            <input type="submit" value="Entrar"/>
+        </form>
+
+
+
+        <!-- Cadastro do usuário -->
+
+
+        <div id="modalCadastroUsuario" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <input type="text" name="nomeUsuario" placeholder="Digite o novo nome de usuário"/>
+                <input type="text" name="password" placeholder="Digite a senha do novo usuário"/>
+                <input type="button" name="btnCadastraUsuario" value="Cadastrar"> 
+            </div>
+        </div>
+
+
+    </body>
+    <script src="modal.js"></script>
+
+</html>
