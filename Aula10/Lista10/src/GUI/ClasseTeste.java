@@ -146,7 +146,7 @@ public class ClasseTeste {
                 daopedidos.atualizar(1, novoPedido);
                 
                 
-                ItensPedido item1 = new ItensPedido
+                ItensPedido item1 = new ItensPedido();
                 
             }
             
