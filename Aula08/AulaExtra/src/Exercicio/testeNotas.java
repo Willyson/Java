@@ -15,11 +15,19 @@ public class testeNotas {
         Superior s = new Superior();
         
         s.setN1(10);
-        s.setN2(10);
-        s.setN3(10);
+        s.setN2(3);
+        s.setN3(8);
         
         System.out.println(s.CalculaMedia(s));
         
+        
+        Tecnico t = new Tecnico();
+        
+        t.setN1(10);
+        t.setN2(3);
+        t.setN3(8);
+        
+        System.out.println(t.CalculaMedia(t));
         
     }
 }
