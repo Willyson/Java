@@ -9,15 +9,14 @@ import Model.Cliente;
 import Model.DB;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author William-Estudo
  */
 public class daoCliente {
-    public Cliente cliente;
-    public DB db;
+    public Cliente cliente = new Cliente();
+    public DB db  = new DB();
     private PreparedStatement statement;
     private ResultSet resultSet;
     private String men, sql;
@@ -38,12 +37,11 @@ public class daoCliente {
     */
     
     
-    public boolean localizarCliente(Cliente cliente){
-        sql = "SELECT NOME, ENDER, BAIRRO, CIDADE, CEP, UF, EMAIL, FONE, CELULAR FROM CLIENTES WHERE CODCLI = ?";
+    public Cliente localizarCliente(Cliente cliente){
+        sql = "SELECT NOME, ENDER, BAIRRO, CIDADE, CEP, UF, EMAIL, FONE, CELULAR FROM CLIENTE WHERE CODCLI = " + cliente.getCodigoCliente();
         
         try{
-            statement = db.connection.prepareStatement(sql);
-            statement.setInt(1, cliente.getCodigoCliente());
+            statement = db.getConnection().prepareStatement(sql);
             resultSet = statement.executeQuery();
             resultSet.next();
             
@@ -56,22 +54,28 @@ public class daoCliente {
             cliente.setEmailCliente(resultSet.getString(7));
             cliente.setFoneCliente(resultSet.getString(8));
             cliente.setCelularCliente(resultSet.getString(9));
-            return true;
+            System.out.println("deu bom");
+            return cliente;
             
         }catch(SQLException erro){
-            return false;
+            System.out.println("deu ruim");
+            return null;
         }
+        
         
     }
     
+    
+    
+    
     /* ======== Listar Clientes ========== */
     
-    public List<Cliente> ListarClientes(){
+    public ArrayList<Cliente> ListarClientes(){
         
-        List<Cliente> clientes = new ArrayList<>();
+        ArrayList<Cliente> clientes = new ArrayList<>();
         
         try{
-            sql = "SELECT * FROM CLIENTES";
+            sql = "SELECT * FROM CLIENTE";
             statement = db.getConnection().prepareStatement(sql);
             resultSet = statement.executeQuery();
             
@@ -93,30 +97,15 @@ public class daoCliente {
                 
             }
             
-            for (Cliente cliente1 : clientes) {
-                System.out.println(cliente1.toString());
-            }
-            
-            
             return clientes;
         }
         catch(SQLException erro){
-            System.err.println(erro);
+            return null;
         }
-        
-        
-        
-        return null;
     }
-    
-    
-    
-    
     public int retornaIDCliente(String nomeCliente){
         
         sql = "SELECT CODCLI FROM CLIENTES WHERE NOME = '"+nomeCliente+"'";
-        
-        
         try{
             statement = db.getConnection().prepareStatement(sql);
             resultSet = statement.executeQuery();
@@ -127,9 +116,9 @@ public class daoCliente {
         }catch(SQLException erro){
             return -1;
         }
-        
-        
     }
+    
+    
     
     
     
@@ -139,7 +128,7 @@ public class daoCliente {
         
         try{
             if(operacao == INCLUSAO){
-                sql = "INSERT INTO CLIENTES (NOME, ENDER, BAIRRO, CIDADE, CEP, UF, EMAIL, FONE, CELULAR) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                sql = "INSERT INTO CLIENTE (CODCLI, NOME, ENDER, BAIRRO, CIDADE, CEP, UF, EMAIL, FONE, CELULAR) VALUES (nextval('ID_CLIENTE'), ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 statement = db.getConnection().prepareStatement(sql);
                 
                 statement.setString(1,(cliente.getNomeCliente()));
@@ -155,15 +144,8 @@ public class daoCliente {
             else if (operacao == ALTERACAO){
                 
                 
-                // Pega ID do cliente 
-                
-                    cliente.setCodigoCliente(retornaIDCliente(cliente.getNomeCliente()));
-                
-                //
-                
-                
-                sql = "UPDATE CLIENTES SET NOME = ?, ENDER = ?, BAIRRO = ?, CIDADE = ?, CEP = ?, UF = ?, EMAIL = ?, FONE = ?, CELULAR = ? WHERE CODCLI = ? ";
-                statement = db.connection.prepareStatement(sql);
+                sql = "UPDATE CLIENTE SET NOME = ?, ENDER = ?, BAIRRO = ?, CIDADE = ?, CEP = ?, UF = ?, EMAIL = ?, FONE = ?, CELULAR = ? WHERE CODCLI = ? ";
+                statement = db.getConnection().prepareStatement(sql);
                 
                 statement.setString(1,(cliente.getNomeCliente()));
                 statement.setString(2, (cliente.getEnderecoCliente()));
@@ -177,10 +159,7 @@ public class daoCliente {
                 statement.setInt(10, cliente.getCodigoCliente());
             }
             else if(operacao == EXCLUSAO){
-                
-                
-                
-                sql = "DELETE FROM CLIENTES WHERE CODCLI = ? ";
+                sql = "DELETE FROM CLIENTE WHERE CODCLI = ? ";
                 statement = db.getConnection().prepareStatement(sql);
                 statement.setInt(1, cliente.getCodigoCliente());
             }

@@ -1,0 +1,92 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22/09/2019, 14:57:46
+    Author     : usuario.sp
+*/
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    width: 99%;
+    height: 99%;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.menu{
+    width: 20%;
+    height: 100%;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.menu ul li{
+    font-size: 17pt;
+}
+
+.padraoLinks{
+    width: 100px;
+    height: 100px;
+    display: block;
+    background-repeat: no-repeat;
+    margin: 3em auto 3em auto;
+    transition: .7s;
+}
+
+.padraoLinks:hover{
+    background-color: #ccc;
+}
+
+
+.venda{
+    background-image: url("../imagens/iconeVenda.png");
+}
+.usuario{
+    background-image: url("../imagens/usuarioIcone.png");
+}
+.produto{
+    background-image: url("../imagens/produtoIcone.png");
+}
+.cliente{
+    background-image: url("../imagens/clienteIcone.png");
+}
+
+.content_request {
+    position: absolute;
+    background:white;
+    right:20px;
+    top:20px;
+    bottom:20px;
+    left:calc(20% + 20px);
+    text-align: center;
+}
+
+.light_box {
+    width:100%;
+    height: 100%;
+    z-index: 4;
+    position:absolute;
+    left:0;
+    top:0;
+    background:rgba(0,0,0,0.6);
+}
+
+.action_request {
+    width:80%;
+    height:80%;
+    position:absolute;
+    background:white;
+    z-index: 5;
+    box-shadow: 0px 0px 20px 3px rgba(50,50,50,0.5);
+    left:calc(50% - 40%);
+    top:calc(50% - 40%);
+}
+
+.box_rq {display: none;}

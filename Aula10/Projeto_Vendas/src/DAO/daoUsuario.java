@@ -13,7 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,26 +25,46 @@ public class daoUsuario {
     private PreparedStatement statement;
     private ResultSet resultSet;
     private String sql;
-    
+     
+    /**
+     *
+     * @param u
+     * @return 
+     * @throws SQLException
+     */
     public Usuario ValidaLogin(Usuario u) throws SQLException{
         
         if(!u.getNomeUsuario().isEmpty() && !u.getSenhaUsuario().isEmpty() && !u.getSenhaUsuario().contains("--")){
             
             sql = "SELECT NOME_USUARIO FROM USUARIO WHERE NOME_USUARIO = '" + u.getNomeUsuario() + "' AND  SENHA_USUARIO = '" + u.getSenhaUsuario() + "' AND STATUS_USUARIO = 'A'";
-            statement = db.getConnection().prepareStatement(sql);
-            resultSet = statement.executeQuery();
-            
-            if(statement == null){
-                usuario.setNomeUsuario("Usuario Invalido");
-            }else{
+            System.out.println(sql);
+            try{
+                statement = db.getConnection().prepareStatement(sql);
+                resultSet = statement.executeQuery();
                 resultSet.next();
                 usuario.setNomeUsuario(resultSet.getString(1));            
+                System.out.println("deu bom");
                 return usuario;
+                
+            }catch(SQLException ex){
+                if(ex.getErrorCode() == 0 )
+                    usuario.setNomeUsuario("Usuario Invalido");
+                return null;
+//                
             }
-            
-        }
+//                
+//          
+       }
+       
         return null;
+        
     }
+    
+    
+    
+    
+    
+    
     
     //Criar função de validação de E-mail e Senha 
     
@@ -66,14 +85,12 @@ public class daoUsuario {
     
     /* Retorna usuários cadastrados */
     
-    public List<Usuario>  retornaUsuarios(){
+    public ArrayList<Usuario>  retornaUsuarios(){
         
-        List<Usuario> usuarios = new ArrayList<Usuario>();
-        
-        
+        ArrayList<Usuario> usuarios = new ArrayList<>();
         
         try{
-            sql = "SELECT ID_USUARIO,  NOME_USUARIO,   \"****\" SENHA_USUARIO,    STATUS_USUARIO FROM  USUARIO";
+            sql = "SELECT ID_USUARIO,	NOME_USUARIO, '****' SENHA_USUARIO,	CASE STATUS_USUARIO	WHEN 'A' THEN 'Ativo' ELSE 'Inativo' END AS STATUS FROM USUARIO";
             statement = db.getConnection().prepareStatement(sql);
             resultSet = statement.executeQuery();
             
@@ -105,7 +122,22 @@ public class daoUsuario {
     }
     
     
+    
+    
+    
     /* Alterar senha */
+
+    public String getSql() {
+        return sql;
+    }
+
+    public void setSql(String sql) {
+        this.sql = sql;
+    }
+
+   
+    
+    
     
     
     

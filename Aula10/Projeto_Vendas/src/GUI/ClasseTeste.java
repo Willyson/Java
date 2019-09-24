@@ -12,11 +12,14 @@ import DAO.daoPedidos;
 import DAO.daoProduto;
 import DAO.daoUsuario;
 import Model.Cliente;
+import Model.DB;
 import Model.ItensPedido;
 import Model.Pedidos;
 import Model.Produto;
 import Model.Usuario;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -28,16 +31,23 @@ public class ClasseTeste {
         
         daoUsuario daoUser = new daoUsuario();
         
-        /* Valida login */
-        //Usuario u = new Usuario("adm", "1234");
+        // Valida login */
+        Usuario u = new Usuario("ADMIN", "1234");
+        
+        
         
         //JOptionPane.showMessageDialog(null, "Seja Bem-vindo " + daoUser.ValidaLogin(u).getNomeUsuario());
         
         
+        
         /* Cadastra usuario */
      
-       // Usuario novoUsuario = new Usuario("william", "1234");   
-       // daoUser.CadastraUsuario(novoUsuario);
+        //Usuario novoUsuario = new Usuario("william", "1234");   
+        //daoUser.CadastraUsuario(novoUsuario);
+
+        
+        //DB d = new DB();
+        //System.out.println(d.getConnection().toString());
         
         
        /* Consultar usuários cadastrados */
@@ -68,14 +78,19 @@ public class ClasseTeste {
         //Cliente removerCliente = new Cliente(1);
         //daocliente.atualizar(3, removerCliente);
         
-        /* Consultar Clientes Cadastrados */
+//        /* Consultar Clientes Cadastrados *
         
-        //daocliente.ListarClientes();
+        //ArrayList<Cliente> clientes = daocliente.ListarClientes();
+        
+       // System.out.println(clientes.get(0).getNomeCliente());
         
         
-        
-        
-        
+       /* Localizar cliente pelo Codigo */
+       
+        Cliente c = new Cliente(1);
+       System.out.println(daocliente.localizarCliente(novoCliente));
+       
+       
         /*========== PRODUTO ========== */
         
         daoProduto daoproduto = new daoProduto();
@@ -132,29 +147,29 @@ public class ClasseTeste {
         
         // Verificar se o cliente existe 
         
-        Cliente clienteVenda = new Cliente();
-        int codigoCliente = daocliente.retornaIDCliente("William Cliente");
-        if(codigoCliente != -1){
-            
-            float quantidade = 10;
-            int codigoProduto = 2;
-            
-            /* Verificar se há produto no estoque */
-            if(daoproduto.produtoDisponivel(codigoProduto, quantidade)){
-                
-                Pedidos novoPedido = new Pedidos(codigoCliente);
-                daopedidos.atualizar(1, novoPedido);
-                
-                // Informo itens do pedido 
-                
-                ItensPedido item1 = new ItensPedido();
-                
-            }
-            
-            
-        }
-        else{
-            System.out.println("Cliente não cadastrado ou nome errado");
-        }
+//        Cliente clienteVenda = new Cliente();
+//        int codigoCliente = daocliente.retornaIDCliente("William Cliente");
+//        if(codigoCliente != -1){
+//            
+//            float quantidade = 10;
+//            int codigoProduto = 2;
+//            
+//            /* Verificar se há produto no estoque */
+//            if(daoproduto.produtoDisponivel(codigoProduto, quantidade)){
+//                
+//                Pedidos novoPedido = new Pedidos(codigoCliente);
+//                daopedidos.atualizar(1, novoPedido);
+//                
+//                // Informo itens do pedido 
+//                
+//                ItensPedido item1 = new ItensPedido();
+//                
+//            }
+//            
+//            
+//        }
+//        else{
+//            System.out.println("Cliente não cadastrado ou nome errado");
+//        }
     }
 }

@@ -34,11 +34,11 @@ public class daoProduto {
         
     }
     
-    public boolean localizaProduto(){
-        sql = "SELECT DESCRICAO, PRECO, QTDE, DATA_CAD FROM PRODUTOS WHERE CODPROD = ?";
+    public Produto localizaProduto(Produto produto){
+        sql = "SELECT DESCRICAO, PRECO, QTDE, DATA_CAD FROM PRODUTO WHERE CODPROD = ?";
         
         try{
-            statement = db.connection.prepareStatement(sql);
+            statement = db.getConnection().prepareStatement(sql);
             statement.setInt(1, produto.getCodigoProduto());
             resultSet = statement.executeQuery();
             resultSet.next();
@@ -48,13 +48,11 @@ public class daoProduto {
             produto.setQtde(resultSet.getFloat(3));
             produto.setDataCadProduto(String.valueOf(resultSet.getDate(4)));
             
-            return true;
+            return produto;
             
         }catch(SQLException erro){
-            return false;
+            return null;
         }
-        
-        
     }
     
     public boolean produtoDisponivel(int codigoProduto, float quantidade){
@@ -80,12 +78,12 @@ public class daoProduto {
     
     /* Listar Produtos */
     
-    public List<Produto> listarProdutos(){
+    public ArrayList<Produto> listarProdutos(){
         
-        List<Produto> produtos = new ArrayList<>();
+        ArrayList<Produto> produtos = new ArrayList<>();
         Produto produto;
         try{
-            sql = "SELECT CODPROD, DESCRICAO, PRECO, QTDE, DATE_FORMAT(DATA_CAD, \"%d/%m/%Y\") AS DATA_CAD FROM PRODUTOS;";
+            sql = "SELECT CODPROD, DESCRICAO, PRECO, QTDE, DATA_CAD AS DATA_CAD FROM PRODUTO";
             statement = db.getConnection().prepareStatement(sql);
             resultSet = statement.executeQuery();
             
@@ -102,12 +100,7 @@ public class daoProduto {
                 produtos.add(produto);
                 
             }
-            
-//            for (Produto produto1 : produtos) {
-//                System.out.println(produto1);
-//            }
-            
-           return produtos;
+        return produtos;
             
             
         }catch(SQLException erro){
@@ -125,7 +118,7 @@ public class daoProduto {
     public String atualizar (int operacao, Produto produto){
         try{
             if(operacao == INCLUSAO){
-                sql = "INSERT INTO PRODUTOS (DESCRICAO, PRECO, QTDE, DATA_CAD) VALUES (?, ?, ?, NOW())";
+                sql = "INSERT INTO PRODUTO VALUES (nextval('ID_PRODUTO'),?, ?, ?, CURRENT_DATE)";
                 statement = db.getConnection().prepareStatement(sql);
                 
                 statement.setString(1,(produto.getDescProduto()));
@@ -134,7 +127,7 @@ public class daoProduto {
                
             }
             else if (operacao == ALTERACAO){
-                sql = "UPDATE PRODUTOS SET DESCRICAO = ?, PRECO = ?, QTDE = ?, DATA_CAD = NOW() WHERE CODPROD = ? ";
+                sql = "UPDATE PRODUTO SET DESCRICAO = ?, PRECO = ?, QTDE = ? WHERE CODPROD = ? ";
                 statement = db.getConnection().prepareStatement(sql);
                 
                 statement.setString(1,(produto.getDescProduto()));

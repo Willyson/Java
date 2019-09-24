@@ -16,14 +16,16 @@ import java.sql.SQLException;
  */
 public class DB {
     public Connection connection = null;
-    private final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private final String DBNAME = "VENDAS";
-    private final String URL = "jdbc:mysql://localhost:3306/" + DBNAME + "?useTimezone=true&serverTimezone=UTC";
-    private final String LOGIN = "root";
+    private final String DRIVER = "org.postgresql.Driver";
+    private final String DBNAME = "vendas";
+    private final String URL = "jdbc:postgresql://localhost:5432/" + DBNAME;
+    private final String LOGIN = "postgres";
     private final String SENHA = "root";
     
     
-    public Connection getConnection() throws SQLException{
+    
+    public java.sql.Connection getConnection() throws SQLException{
+        Connection connection = null;
         try{
             Class.forName(DRIVER);
             connection = DriverManager.getConnection(URL, LOGIN, SENHA);
@@ -42,11 +44,17 @@ public class DB {
     
     public void close(){
         try{
-            connection.close();
-            System.out.println("Desconectou");
+            this.getConnection().close();
         }
         catch (SQLException erro){
             System.out.println("Erro ao desconectar " + erro.toString());
         }
     }
+
+    public DB() {
+    }
+    
+    
+    
+    
 }
