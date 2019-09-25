@@ -83,6 +83,50 @@ public class daoUsuario {
     }
     
     
+    // Retorna usuário 
+    
+    public Usuario retornaUsuario(Usuario u){
+        
+        try{
+            sql = "SELECT NOME_USUARIO, SENHA_USUARIO, STATUS_USUARIO FROM USUARIO WHERE ID_USUARIO = ?";
+            statement = db.getConnection().prepareStatement(sql);
+            statement.setInt(1, u.getCodigoUsuario());
+            resultSet = statement.executeQuery();
+            
+            while(resultSet.next()){
+                u.setNomeUsuario(resultSet.getString(1));
+                u.setSenhaUsuario(resultSet.getString(2));
+                u.setStatusUsuario(resultSet.getString(3));
+            }
+            
+            return u;
+            
+        }catch(SQLException ex){
+            return null;
+        }
+        
+        
+    }
+    
+    
+    public void atualizaUsuario(Usuario u){
+        
+        sql = "UPDATE USUARIO SET NOME_USUARIO = '"+u.getNomeUsuario()+"', SENHA_USUARIO = '"+u.getSenhaUsuario()+"', STATUS_USUARIO = '"+u.getStatusUsuario()+"'  WHERE ID_USUARIO = "+u.getCodigoUsuario()+"";
+        
+        try {
+            statement = db.getConnection().prepareStatement(sql);
+            statement.executeQuery();
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+    }
+    
+    
+    
+    
+    
     /* Retorna usuários cadastrados */
     
     public ArrayList<Usuario>  retornaUsuarios(){

@@ -32,9 +32,8 @@ public class ClasseTeste {
         daoUsuario daoUser = new daoUsuario();
         
         // Valida login */
-        Usuario u = new Usuario("ADMIN", "1234");
-        
-        
+        Usuario u = new Usuario(3, "william", "1234", "A");
+        daoUser.atualizaUsuario(u);
         
         //JOptionPane.showMessageDialog(null, "Seja Bem-vindo " + daoUser.ValidaLogin(u).getNomeUsuario());
         
@@ -87,8 +86,6 @@ public class ClasseTeste {
         
        /* Localizar cliente pelo Codigo */
        
-        Cliente c = new Cliente(1);
-       System.out.println(daocliente.localizarCliente(novoCliente));
        
        
         /*========== PRODUTO ========== */

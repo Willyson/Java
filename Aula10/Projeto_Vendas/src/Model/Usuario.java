@@ -58,6 +58,13 @@ public class Usuario {
         return "Usuario{" + "codigoUsuario=" + codigoUsuario + ", nomeUsuario=" + nomeUsuario + ", senhaUsuario=" + senhaUsuario + ", statusUsuario=" + statusUsuario + '}';
     }
 
+    public Usuario(int codigoUsuario, String nomeUsuario, String senhaUsuario, String statusUsuario) {
+        this.codigoUsuario = codigoUsuario;
+        this.nomeUsuario = nomeUsuario;
+        this.senhaUsuario = senhaUsuario;
+        this.statusUsuario = statusUsuario;
+    }
+
     
     
     

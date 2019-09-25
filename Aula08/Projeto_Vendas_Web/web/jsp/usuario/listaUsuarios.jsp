@@ -37,7 +37,7 @@
                     <td><%= usuarios.get(i).getNomeUsuario() %></td>
                     <td><%= usuarios.get(i).getSenhaUsuario() %></td>
                     <td><%= usuarios.get(i).getStatusUsuario() %></td>
-                    <td><a href="#">Editar</a></td>
+                    <td><a href="usuario/alterarUsuario.jsp?codigoUsuario=<%= usuarios.get(i).getCodigoUsuario() %>">Editar</a></td>
                 </tr>
                 <% } %>
             </tbody>

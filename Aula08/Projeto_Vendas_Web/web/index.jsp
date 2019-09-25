@@ -11,6 +11,7 @@
         <title>Login Usuario</title>
         <link rel="stylesheet" type="text/css" href="css/estiloPadrao.css"/>
         <link rel="stylesheet" type="text/css" href="css/modal.css" />
+        <link rel="stylesheet" href="css/index/estiloIndex.css"/>
         <meta charset="utf-8"/>
     </head>
     <body>
@@ -18,12 +19,11 @@
         <!--Login no sistema-->
 
         <form action="index.jsp" method="POST" class="formulario">
-            <p class="tituloForm">Sistema de Controle de Vendas</p>
-            <input type="text" name="nomeUsuario" placeholder="Digite seu usuário" required/>
-            <input type="password" name="senhaUsuario" placeholder="Senha " required/>
+            <input type="text" name="nomeUsuario" placeholder="Usuário" class="inputEntrada" autocomplete="off" required/>
+            <input type="password" name="senhaUsuario" placeholder="Senha " class="inputEntrada" required/>
             <a href="recuperaSenha.html">Esqueci minha senha</a>
-            <input type="submit" value="Entrar"/>
-        </form>
+            <input type="submit" value="Entrar" class="btnEntrar"/>
+        </form> 
 
         <%
             String usuario = request.getParameter("nomeUsuario");

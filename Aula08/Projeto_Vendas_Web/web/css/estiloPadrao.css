@@ -2,10 +2,10 @@
 *{
     padding: 0;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    
 }
 
-
+/*
 body{
     width:99%;
     height: 99%;
@@ -47,10 +47,10 @@ input[type=text]:hover, input[type=password]:hover{
 
 
 
-/*
+
     Links
 
-*/
+
 
 a{
     text-decoration: none;
@@ -61,9 +61,9 @@ a:hover{
     text-decoration:underline;
 }
 
-/*
+s
     Botão
-*/
+
 
 input[type=submit], input[type=button]{
     border:none;
@@ -77,3 +77,4 @@ input[type=submit], input[type=button]{
 input[type=submit]:hover, input[type=button]:hover{
     background-color:#c3c3c3;
 }
+*/

@@ -47,7 +47,7 @@
     <body>
         <nav class="menu">
             <ul>
-                <li><a  class="venda padraoLinks" ></a></li>
+                <li><a href="venda/novaVenda.jsp" class="venda padraoLinks" ></a></li>
                 <li><a href="usuario/listaUsuarios.jsp" class="usuario padraoLinks" id="1"></a></li>
                 <li><a href="cliente/listaClientes.jsp" class="cliente padraoLinks" id="2"></a></li>
                 <li><a href="Produto/listaProdutos.jsp" class="produto padraoLinks" id="3"></a></li>
