@@ -39,6 +39,7 @@
         
 
     </body>
+    <script src="../js/chamadaPagina.js"></script>
 </html>
 
 

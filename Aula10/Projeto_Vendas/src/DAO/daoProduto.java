@@ -57,7 +57,7 @@ public class daoProduto {
     
     public boolean produtoDisponivel(int codigoProduto, float quantidade){
         
-        sql = "SELECT QTDE FROM PRODUTOS WHERE CODPROD = ?";
+        sql = "SELECT QTDE FROM PRODUTO WHERE CODPROD = ?";
         
         try{
             statement = db.getConnection().prepareStatement(sql);

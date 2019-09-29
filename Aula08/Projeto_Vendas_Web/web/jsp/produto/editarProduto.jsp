@@ -25,14 +25,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="../../css/usuario/estiloUsuario.css"/>
     </head>
     <body>
         <form action="salvaAlteracoesProduto.jsp?CodigoProduto=<%= produtoAEditar.getCodigoProduto() %>" method="POST">
-            <input type="text" name="descProduto" id="descProduto" value="<%= produtoAEditar.getDescProduto() %>" />
-            <input type="text" name="precoProduto" value="<%= produtoAEditar.getPrecoProduto() %>" />
-            <input type="text" name="qtdeProduto" value="<%= produtoAEditar.getQtde() %>" />
-            <input type="text" name="dataCadastro" value="<%= produtoAEditar.getDataCadProduto() %>" />
-            <input type="submit" value="Salvar" id="btnSalvar">
+            <input type="text" name="descProduto" id="descProduto" value="<%= produtoAEditar.getDescProduto() %>" class="inputPadrao" />
+            <input type="text" name="precoProduto" value="<%= produtoAEditar.getPrecoProduto() %>"  class="inputPadrao" />
+            <input type="text" name="qtdeProduto" value="<%= produtoAEditar.getQtde() %>" class="inputPadrao" />
+            <input type="text" name="dataCadastro" value="<%= produtoAEditar.getDataCadProduto() %>" class="inputPadrao" />
+            <input type="submit" value="Salvar" id="btnSalvar"  class="botaoPadrao"/>
         </form>
             
     </body>

@@ -1,0 +1,119 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 26/09/2019, 15:20:20
+    Author     : usuario.sp
+*/
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+
+.bodyUsuario{
+
+}
+
+.tablePadrao thead tr td{
+    font-size: 14pt;
+    padding: 0 3em .2em 3em;
+    border-bottom: 3px solid #000;
+    text-transform: uppercase;
+    
+}
+
+
+
+.tablePadrao{
+    font-family: 'Roboto', sans-serif;
+    margin: 5em auto auto auto;
+}
+.tablePadrao tbody tr td{
+    text-align: center;
+    padding: .5em;
+    border: none;
+    
+}
+
+.tablePadrao tbody tr:hover{
+    background-color: #001c43;
+    color:#fff;
+}
+
+.tablePadrao tbody tr a{
+    text-decoration: none; 
+    color:#000;
+}
+.tablePadrao tbody tr:hover a {
+    text-decoration: none; 
+    color:#fff;
+}
+
+
+.inputPadrao{
+    border: none;
+    padding: .7em;
+    width: 300px;
+    margin-right: 3em;
+    font-size: 14pt;
+    text-align: center;
+    border-bottom: 3px solid #00275c;
+    outline: none;
+    color: #00275C;
+}
+
+label{
+    width: 200px;
+    background-color: red;
+}
+
+
+
+.inputPadrao:focus{
+    border-bottom: 3px solid #d80000;
+    transition: .8s;
+}
+
+.botaoPadrao{
+    border: none;
+    background: none;
+    border: 1px solid #4c678c;
+    padding: .8em;
+    font-size: 14pt;
+    background-color: #00275C;
+    color:#fff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.botaoPadrao:hover{
+    background-color: #003d8f;
+    
+}
+
+.inputPadrao::placeholder{
+    color: #00275C;
+}
+
+.sessaoVenda{
+    margin:  1em;
+    
+}
+
+.sessaoVenda label{
+    font-size: 14pt;
+}
+
+.sessaoVenda select{
+    font-size: 12pt;
+    margin-left: 1em;
+    border: none;
+    outline: 0;
+    border: 2px solid #00275c;
+    padding: .5em .8em .5em .8em;
+}
+
+.sessaoVenda select:hover{
+    background-color: #003d8f ;
+    color:#fff;
+}

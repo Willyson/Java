@@ -23,12 +23,29 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="../css/usuario/estiloUsuario.css"/>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <title>JSP Page</title>
     </head>
-    <body>
-        <table border="1">
+    <script>
+        $(document).ready(function(){
+            
+            $('.request_crud').click(function(event){
+               event.preventDefault();
+               var link = $(this).attr('href');
+               $('.action_request').load(link);
+               $('.box_rq').fadeIn();
+            });
+            
+        });
+        
+    </script>
+    
+    
+    <body class="body">
+        <table class="tablePadrao">
             <thead>
-                <tr><td>Código do Usuário</td><td>Nome de Usuário</td><td>Senha do Usuário</td><td>Status</td><td>Ações</td></tr>
+                <tr><td>Código</td><td>Usuário</td><td>Senha</td><td>Status</td><td>Ações</td></tr>
             </thead>
             <tbody>
                 <% for(int i = 0; i < qtdUsuarios; i++){ %>
@@ -37,7 +54,7 @@
                     <td><%= usuarios.get(i).getNomeUsuario() %></td>
                     <td><%= usuarios.get(i).getSenhaUsuario() %></td>
                     <td><%= usuarios.get(i).getStatusUsuario() %></td>
-                    <td><a href="usuario/alterarUsuario.jsp?codigoUsuario=<%= usuarios.get(i).getCodigoUsuario() %>">Editar</a></td>
+                    <td><a href="usuario/alterarUsuario.jsp?codigoUsuario=<%= usuarios.get(i).getCodigoUsuario() %>" class="request_crud" >Editar</a></td>
                 </tr>
                 <% } %>
             </tbody>

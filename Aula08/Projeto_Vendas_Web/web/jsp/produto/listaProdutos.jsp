@@ -21,14 +21,24 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="../css/modal.css"/>
+        <link rel="stylesheet" href="../css/usuario/estiloUsuario.css" />   
         <title>JSP Page</title>
     </head>
     <body>
         
-        <input type="text" placeholder="Nome do Produto"/> <input type="button" value="Novo Produto" id="btnNovoProduto">
+        <input type="text" placeholder="Nome do Produto" class="inputPadrao" /> 
+        <input type="button" value="Novo Produto" id="btnNovoProduto" class="botaoPadrao"/>
         
-        <table border="1">
-            <thead><td>Código do Produto</td><td>Produto</td><td>Preço</td><td>Quantidade disponível</td><td colspan="2">Ações</td></thead>
+        <table class="tablePadrao">
+            <thead>
+                <tr>
+                    <td>Código</td>
+                    <td>Produto</td>
+                    <td>Preço</td>
+                    <td>Quantidade disponível</td>
+                    <td colspan="2">Ações</td>
+                </tr>
+            </thead>
         <tbody>
             <% for(int i = 0; i < qtdProdutos; i++){ %>
             <tr>
@@ -40,36 +50,19 @@
                 <td><a href="#">Excluir</a></td>
             </tr>
             <% } %>
-        </tbody>
+          </tbody>
         </table>
         
-        <form id="modalCadastroProduto" method="POST" action="Produto/salvaNovoProduto.jsp" > 
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <input type="text" name="descProduto" placeholder="Descrição do Produto">
-                <input type="text" name="precoProduto" placeholder="Preço" />
-                <input type="text" name="qtdeProduto" placeholder="Quantidade" />
-                <input type="submit" value="Salvar">
+        <form method="POST" action="Produto/salvaNovoProduto.jsp" > 
+            <div class="modal" id="modalCadastroCliente">
+                <a href="#" rel="modal:close">Fechar</a>
+                <input type="text" name="descProduto" placeholder="Descrição do Produto" class="inputPadrao" />
+                <input type="text" name="precoProduto" placeholder="Preço" class="inputPadrao" />
+                <input type="text" name="qtdeProduto" placeholder="Quantidade" class="inputPadrao" />
+                <input type="submit" value="Salvar" class="botaoPadrao" />
             </div>
-            
         </form>
         
     </body>
-    
-    
-    <script>
-        
-        var modal = document.getElementsByClassName("modal");
-        
-        document.getElementById("btnNovoProduto").addEventListener("click", function(){
-            modal.style.display = "block";
-        });
-        
-        
-    </script>
-    
-    
-    
-    
     
 </html>

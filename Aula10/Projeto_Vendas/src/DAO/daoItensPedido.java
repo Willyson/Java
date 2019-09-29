@@ -41,6 +41,8 @@ public class daoItensPedido {
                 statement.setInt(1, itenspedido.getCodigoPedido());
                 statement.setInt(2, itenspedido.getCodigoProduto());
                 statement.setFloat(3, itenspedido.getQtdeItens());
+                statement.executeQuery();
+                
                 
             }else if(operacao == EXCLUSAO){
                 sql = "";
@@ -58,6 +60,8 @@ public class daoItensPedido {
         }catch(SQLException erro){
             System.out.println(erro);
         }
+        
+        
         
         
         return men;

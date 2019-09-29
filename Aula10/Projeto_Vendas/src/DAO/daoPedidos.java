@@ -36,9 +36,11 @@ public class daoPedidos {
         
         try{
             if(operacao == INCLUSAO){
-                sql = "INSERT INTO PEDIDOS (CODCLI, DATA) VALUES (?, NOW())";
+                sql = "INSERT INTO PEDIDO  VALUES (nextval('ID_PEDIDO'), ?, CURRENT_DATE)";
                 statement = db.getConnection().prepareStatement(sql);
                 statement.setInt(1, pedido.getCodigoCliente());
+                statement.executeQuery();
+                
                 
             }else if(operacao == EXCLUSAO){
                 sql = "DELETE FROM PEDIDOS WHERE CODPED = ?";
@@ -58,4 +60,23 @@ public class daoPedidos {
         return men;
     }
     
+    
+    public int retornaUltimoPedido(int codigoCliente){
+        
+        try{
+            sql = "SELECT MAX(CODPED) FROM PEDIDO WHERE CODCLI = ?";
+            statement = db.getConnection().prepareStatement(sql);
+            statement.setInt(1, codigoCliente);
+            resultSet = statement.executeQuery();
+            
+            while(resultSet.next()){
+                return resultSet.getInt(1);
+            }
+            
+        }catch(SQLException ex){
+            
+        }
+        
+        return 0;
+    }
 }

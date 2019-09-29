@@ -47,6 +47,11 @@ public class ItensPedido {
 
     public ItensPedido() {
     }
+
+    @Override
+    public String toString() {
+        return "ItensPedido{" + "codigoPedido=" + codigoPedido + ", codigoProduto=" + codigoProduto + ", qtdeItens=" + qtdeItens + '}';
+    }
     
     
     

@@ -20,21 +20,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="../css/usuario/estiloUsuario.css" />
         <title>JSP Page</title>
     </head>
     <body>
         <form action="salvaAlteracoesCliente.jsp?CodigoCliente=<%= request.getParameter("CodigoCliente")%>" method="POST">
-            <input type="text" placeholder="Nome do Cliente" value="<%= clienteAltera.getNomeCliente() %>" name="nomeCliente"/>
-            <input type="text" placeholder="CEP" value="<%= clienteAltera.getCepCliente() %>" name="cepCliente"/>
-            <input type="text" placeholder="Endereço do Cliente" value="<%= clienteAltera.getEnderecoCliente() %>" name="enderecoCliente" />
-            <input type="text" placeholder="Bairro do Cliente" value="<%= clienteAltera.getBairroCliente() %>" name="bairroCliente" />
-            <input type="text" placeholder="Cidade do Cliente" value="<%= clienteAltera.getCidadeCliente() %>" name="cidadeCliente" />
-            <input type="text" placeholder="UF" value="<%= clienteAltera.getUfCliente() %>" name="ufCliente" />
-            <input type="email" placeholder="email" value="<%= clienteAltera.getEmailCliente() %>" name="emailCliente" />
-            <input type="text" placeholder="Telefone" value="<%= clienteAltera.getFoneCliente() %>" name="foneCliente" />
-            <input type="text" placeholder="Celular" value="<%= clienteAltera.getCelularCliente() %>" name="celularCliente" />
-            <input type="submit" value="Salvar"/>
-            <input type="button" value="Voltar" id="btnVolta" onclick="voltaPagina()"/>
+            <input type="text" placeholder="Nome do Cliente" value="<%= clienteAltera.getNomeCliente() %>" name="nomeCliente" class="inputPadrao"/>
+            <input type="text" placeholder="CEP" value="<%= clienteAltera.getCepCliente() %>" name="cepCliente" class="inputPadrao" />
+            <input type="text" placeholder="Endereço do Cliente" value="<%= clienteAltera.getEnderecoCliente() %>" name="enderecoCliente" class="inputPadrao" />
+            <input type="text" placeholder="Bairro do Cliente" value="<%= clienteAltera.getBairroCliente() %>" name="bairroCliente" class="inputPadrao" />
+            <input type="text" placeholder="Cidade do Cliente" value="<%= clienteAltera.getCidadeCliente() %>" name="cidadeCliente" class="inputPadrao" />
+            <input type="text" placeholder="UF" value="<%= clienteAltera.getUfCliente() %>" name="ufCliente" class="inputPadrao" />
+            <input type="email" placeholder="email" value="<%= clienteAltera.getEmailCliente() %>" name="emailCliente" class="inputPadrao" />
+            <input type="text" placeholder="Telefone" value="<%= clienteAltera.getFoneCliente() %>" name="foneCliente" class="inputPadrao" />
+            <input type="text" placeholder="Celular" value="<%= clienteAltera.getCelularCliente() %>" name="celularCliente" class="inputPadrao" />
+            <input type="submit" value="Salvar" class="botaoPadrao" />
         </form>
     </body>
     

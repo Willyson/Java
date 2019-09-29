@@ -11,12 +11,14 @@ import DAO.daoItensPedido;
 import DAO.daoPedidos;
 import DAO.daoProduto;
 import DAO.daoUsuario;
+import DAO.daoVenda;
 import Model.Cliente;
 import Model.DB;
 import Model.ItensPedido;
 import Model.Pedidos;
 import Model.Produto;
 import Model.Usuario;
+import Model.Venda;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -30,10 +32,7 @@ public class ClasseTeste {
     public static void main(String[] args) throws SQLException {
         
         daoUsuario daoUser = new daoUsuario();
-        
-        // Valida login */
-        Usuario u = new Usuario(3, "william", "1234", "A");
-        daoUser.atualizaUsuario(u);
+   
         
         //JOptionPane.showMessageDialog(null, "Seja Bem-vindo " + daoUser.ValidaLogin(u).getNomeUsuario());
         
@@ -54,6 +53,9 @@ public class ClasseTeste {
         //daoUser.retornaUsuarios();
         
         
+        ArrayList<Venda> vendas;
+        
+        daoVenda daovenda = new daoVenda();
         
         
         /* Cadastra cliente */
@@ -108,6 +110,7 @@ public class ClasseTeste {
         
         //Produto removerProduto = new Produto(1);
         //daoproduto.atualizar(3, removerProduto);
+  
         
         
        /* Listar Produtos */ 
@@ -119,15 +122,9 @@ public class ClasseTeste {
         
        daoPedidos daopedidos = new daoPedidos();
        
-       /* Cadastra pedido */
        
-       //Pedidos novoPedido = new Pedidos(1); 
-       //daopedidos.atualizar(1, novoPedido);
        
-       /* Remove pedido */
        
-       //Pedidos removePedido = new Pedidos(1,1);
-       //daopedidos.atualizar(3, removePedido);
        
        
        /* ========== ITENS VENDIDOS ==========  */
@@ -154,7 +151,7 @@ public class ClasseTeste {
 //            /* Verificar se há produto no estoque */
 //            if(daoproduto.produtoDisponivel(codigoProduto, quantidade)){
 //                
-//                Pedidos novoPedido = new Pedidos(codigoCliente);
+                Pedidos novoPedido = new Pedidos();
 //                daopedidos.atualizar(1, novoPedido);
 //                
 //                // Informo itens do pedido 

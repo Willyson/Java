@@ -26,6 +26,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <link rel="stylesheet" href="../css/modal.css"/>
+        <link rel="stylesheet" href="../css/usuario/estiloUsuario.css" />
         <title>Clientes</title>
         <script>
             $(document).ready(function(){
@@ -44,11 +45,11 @@
     <body>
         
         <!--Localiza o cliente -->
-        <input type="text" name="pesquisaNomeCliente" placeholder="Digite o nome do cliente">
-        <input type="button" value="Novo Cliente" id="btnNovoCliente" />
-        <input type="button" value="Voltar" onclick="voltaPagina()">
+        <input type="text" name="pesquisaNomeCliente" placeholder="Digite o nome do cliente" class="inputPadrao" />
+        <input type="button" value="Novo Cliente" id="btnNovoCliente" class="botaoPadrao" />
+        <input type="button" value="Voltar" onclick="voltaPagina()" class="botaoPadrao" >
     
-        <table border="1">
+        <table class="tablePadrao">
             <thead>
                 <tr><td>Código</td><td>Nome</td><td>Telefone</td><td>Celular</td><td>E-mail</td><td colspan="2">Ações</td></tr>
             </thead>
@@ -84,7 +85,6 @@
                 </div>
             </div>
         </form>
-        <script src="../js/modal.js"></script>
         <script src="../js/cliente/acoesBasicasCliente.js"></script>
     </body>
 </html>

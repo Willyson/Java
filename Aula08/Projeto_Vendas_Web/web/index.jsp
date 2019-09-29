@@ -8,7 +8,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Login Usuario</title>
+        <title>Controle de Vendas</title>
         <link rel="stylesheet" type="text/css" href="css/estiloPadrao.css"/>
         <link rel="stylesheet" type="text/css" href="css/modal.css" />
         <link rel="stylesheet" href="css/index/estiloIndex.css"/>
@@ -21,8 +21,8 @@
         <form action="index.jsp" method="POST" class="formulario">
             <input type="text" name="nomeUsuario" placeholder="Usuário" class="inputEntrada" autocomplete="off" required/>
             <input type="password" name="senhaUsuario" placeholder="Senha " class="inputEntrada" required/>
-            <a href="recuperaSenha.html">Esqueci minha senha</a>
             <input type="submit" value="Entrar" class="btnEntrar"/>
+            <a href="recuperaSenha.html">Esqueci minha senha</a>
         </form> 
 
         <%
