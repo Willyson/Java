@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Market</string>
+    <string name="txt_login">Login</string>
+    <string name="txt_senha">Senha</string>
+    <string name="btn_entrar">Entrar</string>
+    <string name="txt_menu">Menu</string>
+    <string name="btn_cadastre">Cadastre-se</string>
+    <string name="add_usu">Adicionar usuario</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="btn_cadastrar">Cadastrar</string>
+
+
+    <string name="title_login">LOGIN</string>
+    <string name="user">Usuario</string>
+    <string name="pass">Senha</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="txt_cadastrar">Cadastre-se!</string>
+    <string name="btn_login">Entrar</string>
+    <string name="tipo">Tipo</string>
+    <string name="title_cadastro">Cadastro Usuário</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="title_activity_cadastro_jogo">CadastroJogo</string>
+    <string name="title_activity_teste">teste</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_meus_jogos">MeusJogos</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Logout</string>
+    <string name="alterar_usuario">Alterar Usuário</string>
+</resources>
+
+
